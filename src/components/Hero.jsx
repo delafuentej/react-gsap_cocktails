@@ -1,10 +1,14 @@
-import React from "react";
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
-import { images } from "../utils";
+import { useMediaQuery } from "react-responsive";
+import { images, videos } from "../utils";
 
 const Hero = () => {
+  const videoRef = useRef();
+
+  const isMobile = useMediaQuery({ maxWidth: 768 });
   useGSAP(() => {
     gsap.set([".right-leaf", ".left-leaf"], {
       opacity: 0.75,
@@ -48,10 +52,35 @@ const Hero = () => {
     animationLeafs
       .to(".right-leaf", { y: 300 }, 0)
       .to(".left-leaf", { y: -300 }, 0);
+
+    // animation video:
+    const startValue = isMobile ? "top 50%" : "center 60%";
+    const endValue = isMobile ? "120% top" : "bottom top";
+
+    const animationVideo = gsap.timeline({
+      scrollTrigger: {
+        trigger: "video",
+        start: startValue,
+        end: endValue,
+        scrub: true,
+        pin: true,
+        // onEnter: () => videoRef.current.play(),
+        // onEnterBack: () => videoRef.current.play(),
+        // onLeave: () => videoRef.current.pause(),
+        // onLeaveBack: () => videoRef.current.pause(),
+      },
+    });
+
+    videoRef.current.onloadedmetadata = () => {
+      animationVideo.to(videoRef.current, {
+        currentTime: videoRef.current.duration,
+      });
+    };
   }, []);
 
   return (
     <>
+      {/* titles + paragraht + leafs */}
       <section id="hero" className="noisy">
         <h1 className="title">
           Drift <span className="font-anton">&</span> Pour
@@ -83,6 +112,19 @@ const Hero = () => {
           </div>
         </div>
       </section>
+
+      {/* video */}
+      <div className="video absolute inset-0">
+        <video
+          src={videos.hero.heroOutput}
+          ref={videoRef}
+          preload="auto"
+          muted
+          playsInline
+          //   autoPlay
+          //   loop
+        />
+      </div>
     </>
   );
 };

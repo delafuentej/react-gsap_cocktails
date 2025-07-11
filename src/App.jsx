@@ -17,7 +17,7 @@ function App() {
         <Navbar />
         <Hero />
       </main>
-      <div className="h-dvh bg-black" />
+      <div className="h-dvh bg-['#1d1d1d']" />
     </>
   );
 }

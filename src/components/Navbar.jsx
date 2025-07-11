@@ -9,7 +9,7 @@ const Navbar = () => {
       scrollTrigger: {
         trigger: "nav",
         start: "bottom top",
-        markers: true,
+        // markers: true,
       },
     });
     tl.fromTo(
@@ -26,7 +26,7 @@ const Navbar = () => {
     );
   }, []);
   return (
-    <nav className="nav">
+    <nav>
       <div>
         {/* logo */}
         <a href="#home" className="flex items-center gap-2">
