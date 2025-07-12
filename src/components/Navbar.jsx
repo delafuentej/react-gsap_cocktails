@@ -9,6 +9,7 @@ const Navbar = () => {
       scrollTrigger: {
         trigger: "nav",
         start: "bottom top",
+        toggleActions: "restart reverse restart reverse",
         // markers: true,
       },
     });
@@ -30,7 +31,7 @@ const Navbar = () => {
       <div>
         {/* logo */}
         <div className="text-3xl md:text-3xl xl:text-[5000px]">
-          <a href="#home" className="flex items-center gap-2">
+          <a href="#hero" className="flex items-center gap-2">
             <img src={images.nav.logo} alt="logo" width="40" height="40" />
             Drift<span className="font-anton">&</span>Pour
           </a>
