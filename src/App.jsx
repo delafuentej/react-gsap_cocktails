@@ -1,7 +1,7 @@
 import { ScrollTrigger, ScrollSmoother, SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Navbar, Hero, Cocktails } from "./components";
+import { Navbar, Hero, Cocktails, About } from "./components";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, SplitText);
 function App() {
@@ -22,6 +22,7 @@ function App() {
           <div id="smooth-content"> */}
         <Hero />
         <Cocktails />
+        <About />
 
         {/*   </div>
         </div> */}

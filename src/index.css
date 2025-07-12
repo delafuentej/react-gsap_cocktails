@@ -73,11 +73,11 @@ body {
     }
 
     p {
-      @apply font-modern-negra text-3xl -mb-2;
+      @apply -mb-2;
     }
 
     a {
-      @apply cursor-pointer text-nowrap md:text-base text-sm;
+      @apply cursor-pointer text-nowrap md:text-base font-modern-negra;
     }
 
     ul {
@@ -134,7 +134,7 @@ body {
   }
 
   video {
-    @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover;
+    @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover bg-['#1d1d1d'];
   }
 
   #cocktails {
@@ -160,7 +160,7 @@ body {
       }
 
       h2 {
-        @apply text-xl font-medium;
+        @apply text-3xl font-modern-negra;
       }
 
       ul {

@@ -10,6 +10,7 @@ const Cocktails = () => {
         trigger: "#cocktails",
         start: "top 10%",
         end: "bottom 80%",
+        toggleActions: "restart reverse restart reverse",
         scrub: true,
       },
     });

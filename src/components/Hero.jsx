@@ -45,6 +45,7 @@ const Hero = () => {
         trigger: "#hero",
         start: "top top",
         end: "bottom top",
+        toggleActions: "restart reverse restart reverse",
         scrub: true,
       },
     });
