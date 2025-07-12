@@ -9,7 +9,7 @@ import heroRightLeaf from "/images/hero/hero-right-leaf.webp";
 
 //cocktails
 import cocktailLeftLeaf from "/images/cocktails/cocktail-left-leaf.webp";
-import cocktailRightLef from "/images/cocktails/cocktail-right-leaf.webp";
+import cocktailRightLeaf from "/images/cocktails/cocktail-right-leaf.webp";
 
 // about
 import about1 from "/images/about/abt1.webp";
@@ -67,7 +67,7 @@ export const images = {
   },
   cocktails: {
     cocktailLeftLeaf,
-    cocktailRightLef,
+    cocktailRightLeaf,
   },
   about: {
     about1,

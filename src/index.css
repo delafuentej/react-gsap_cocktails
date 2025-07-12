@@ -140,12 +140,12 @@ body {
   #cocktails {
     @apply relative min-h-dvh w-full overflow-hidden;
 
-    #c-left-leaf {
-      @apply absolute left-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
+    #cocktails-left-leaf {
+      @apply absolute left-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3 opacity-75;
     }
 
-    #c-right-leaf {
-      @apply absolute right-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3;
+    #cocktails-right-leaf {
+      @apply absolute right-0 md:bottom-0 md:top-auto -top-20 md:w-fit w-1/3 opacity-75;
     }
 
     .list {
