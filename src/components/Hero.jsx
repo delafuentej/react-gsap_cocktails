@@ -116,7 +116,7 @@ const Hero = () => {
       {/* video */}
       <div className="video absolute inset-0">
         <video
-          src={videos.hero.heroOutput}
+          src={videos.hero.heroInput}
           ref={videoRef}
           preload="auto"
           muted

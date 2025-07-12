@@ -7,17 +7,25 @@ gsap.registerPlugin(ScrollSmoother, ScrollTrigger, SplitText);
 function App() {
   // useGSAP(() => {
   //   ScrollSmoother.create({
-  //     smooth: 1,
+  //     wrapper: "#smooth-wrapper",
+  //     content: "#smooth-content",
+  //     smooth: 2,
+  //     smoothTouch: 0.1,
   //     effects: true,
   //   });
-  // });
+  // }, []);
   return (
     <>
-      <main className="flex-center h-[100vh]">
+      <main>
         <Navbar />
+        {/* <div id="smooth-wrapper">
+          <div id="smooth-content"> */}
         <Hero />
+
+        {/*   </div>
+        </div> */}
       </main>
-      <div className="h-dvh bg-['#1d1d1d']" />
+      <div className="h-[100vh] bg-[#1d1d1d]" />
     </>
   );
 }
