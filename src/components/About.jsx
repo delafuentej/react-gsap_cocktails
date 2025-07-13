@@ -87,7 +87,7 @@ const About = () => {
           <img src={images.about.about2} alt="grid-img2" />
         </div>
         <div className="md:col-span-3">
-          <div className="noisy" />
+          <div className="ice" />
           <img src={images.about.about5} alt="grid-img5" />
         </div>
       </div>

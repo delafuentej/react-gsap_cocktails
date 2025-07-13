@@ -115,7 +115,7 @@ const Hero = () => {
       </section>
 
       {/* video */}
-      <div className="video absolute inset-0">
+      <div className="video">
         <video
           src={videos.hero.heroInput}
           ref={videoRef}

@@ -19,7 +19,7 @@
 html,
 body {
   width: 100%;
-  background-color: #1d1d1d;
+  background-color: black;
   color: white;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -86,7 +86,23 @@ body {
   }
 
   .noisy {
-    @apply absolute inset-0 size-full bg-[url("/images/noise.png")];
+    @apply absolute inset-0 size-full bg-[url("/images/noise.png")] z-2;
+  }
+  .ice {
+    @apply absolute inset-0 size-full z-10;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .ice::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/images/ice_tileable.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7; /* 20% transparencia */
+    z-index: -10000;
   }
 
   #hero {
@@ -134,7 +150,7 @@ body {
   }
 
   video {
-    @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover bg-['#1d1d1d'];
+    @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover inset-0 bg-black;
   }
 
   #cocktails {
@@ -281,11 +297,11 @@ body {
   #menu {
     @apply relative w-full md:mt-40 mt-0 2xl:px-0 px-5 py-20 radial-gradient;
 
-    #m-left-leaf {
+    #menu-left-leaf {
       @apply object-contain absolute -bottom-20 left-0 md:w-fit w-1/3;
     }
 
-    #m-right-leaf {
+    #menu-right-leaf {
       @apply object-contain absolute -top-40 right-0 md:w-fit w-1/4;
     }
 
@@ -317,7 +333,7 @@ body {
       @apply flex-center mt-10;
 
       img {
-        @apply object-contain h-[60vh];
+        @apply object-contain h-[60vh] opacity-0;
       }
     }
 

@@ -25,6 +25,11 @@ import about10 from "/images/about/abt10.webp";
 import about11 from "/images/about/abt11.webp";
 import about12 from "/images/about/abt12.webp";
 import about13 from "/images/about/abt13.webp";
+//- profiles
+import profile1 from "/images/profiles/profile1.webp";
+import profile2 from "/images/profiles/profile2.webp";
+import profile3 from "/images/profiles/profile3.webp";
+import profile4 from "/images/profiles/profile4.webp";
 
 //arrows
 import arrow from "/images/arrows/arrow.webp";
@@ -48,9 +53,9 @@ import drink3 from "/images/menu/drink3.webp";
 import drink4 from "/images/menu/drink4.webp";
 
 // contact
-import facebook from "/images/contact/sn/fb.webp";
-import instagram from "/images/contact/sn/insta.webp";
-import x from "/images/contact/sn/x.webp";
+import facebook from "/images/contact/fb.webp";
+import instagram from "/images/contact/insta.webp";
+import x from "/images/contact/x.webp";
 
 //footer
 import footerDrinks from "/images/footer/footer-drinks.webp";
@@ -83,6 +88,12 @@ export const images = {
     about11,
     about12,
     about13,
+    profiles: {
+      profile1,
+      profile2,
+      profile3,
+      profile4,
+    },
   },
   arrows: {
     arrow,

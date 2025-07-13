@@ -5,13 +5,35 @@ import { cocktailLists, mockTailLists } from "../constants";
 
 const Cocktails = () => {
   useGSAP(() => {
+    const section = document.querySelector("#cocktails");
+
     const parallaxTl = gsap.timeline({
       scrollTrigger: {
         trigger: "#cocktails",
         start: "top 10%",
-        end: "bottom 80%",
+        end: "bottom bottom",
         toggleActions: "restart reverse restart reverse",
         scrub: true,
+        // Cambiar clase cuando entra
+        onEnter: () => {
+          section.classList.remove("noisy");
+          section.classList.add("ice");
+        },
+        // Cuando sales hacia abajo (dejas la zona)
+        onLeave: () => {
+          section.classList.remove("ice");
+          section.classList.add("noisy");
+        },
+        // Cuando entras desde abajo hacia arriba (scroll hacia arriba)
+        onEnterBack: () => {
+          section.classList.remove("noisy");
+          section.classList.add("ice");
+        },
+        // Cuando sales hacia arriba (dejas la zona)
+        onLeaveBack: () => {
+          section.classList.remove("ice");
+          section.classList.add("noisy");
+        },
       },
     });
     parallaxTl
