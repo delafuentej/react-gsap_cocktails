@@ -120,14 +120,16 @@ export const images = {
     },
   },
   contact: {
-    facebook,
-    instagram,
-    x,
-  },
-  footer: {
     footerDrinks,
-    footerLeftLeaf,
-    footerRightLeaf,
+    sn: {
+      facebook,
+      instagram,
+      x,
+    },
+    leafs: {
+      footerLeftLeaf,
+      footerRightLeaf,
+    },
   },
 };
 
@@ -138,8 +140,7 @@ import art2 from "/videos/art2.mp4";
 //-hero
 import heroInput from "/videos/input.mp4";
 import heroOutput from "/videos/output.mp4";
-import heroOutput2 from "/videos/output2.mp4";
-import heroOutput2Bg from "/videos/output2_bg.mp4";
+import contactBg from "/videos/contact_vd.mp4";
 
 export const videos = {
   art: {
@@ -149,7 +150,8 @@ export const videos = {
   hero: {
     heroInput,
     heroOutput,
-    heroOutput2,
-    heroOutput2Bg,
+  },
+  contact: {
+    contactBg,
   },
 };

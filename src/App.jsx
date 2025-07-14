@@ -1,7 +1,15 @@
 import { ScrollTrigger, ScrollSmoother, SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Navbar, Hero, Cocktails, About, Art, Menu } from "./components";
+import {
+  Navbar,
+  Hero,
+  Cocktails,
+  About,
+  Art,
+  Menu,
+  Contact,
+} from "./components";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger, SplitText);
 function App() {
@@ -25,11 +33,11 @@ function App() {
         <About />
         <Art />
         <Menu />
+        <Contact />
 
         {/*   </div>
         </div> */}
       </main>
-      <div className="h-[100vh] bg-[#1d1d1d]" />
     </>
   );
 }

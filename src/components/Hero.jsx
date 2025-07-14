@@ -40,6 +40,19 @@ const Hero = () => {
         ">"
       );
 
+    // gsap.to([".first-part", ".second-part"], {
+    //   duration: 2,
+    //   ease: "sine.inOut",
+    //   stagger: 1,
+    //   backgroundColor: gsap.utils.wrap([
+    //     // "#50C878",
+    //     "#00CFFF",
+    //     // "#50C878",
+    //     // "#FF2DAE",
+    //     "#A100FF",
+    //   ]),
+    // });
+
     const animationLeafs = gsap.timeline({
       scrollTrigger: {
         trigger: "#hero",
@@ -51,11 +64,25 @@ const Hero = () => {
     });
 
     animationLeafs
-      .to(".right-leaf", { y: 300 }, 0)
-      .to(".left-leaf", { y: -300 }, 0);
+      .to(".right-leaf", { yPercent: 300 }, 0)
+      .to(".left-leaf", { yPercent: -100 }, 0);
+
+    const animationMsgText = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top 1%", // puedes ajustar esto si lo necesitas
+        toggleActions: "play reset complete reverse",
+      },
+    });
+
+    animationMsgText.to(".msg-text-scroll", {
+      duration: 1,
+      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      ease: "circ.inOut",
+    });
 
     // animation video:
-    const startValue = isMobile ? "top 50%" : "center 60%";
+    const startValue = isMobile ? "top 30%" : "center 60%";
     const endValue = isMobile ? "120% top" : "bottom top";
 
     const animationVideo = gsap.timeline({
@@ -65,10 +92,6 @@ const Hero = () => {
         end: endValue,
         scrub: true,
         pin: true,
-        // onEnter: () => videoRef.current.play(),
-        // onEnterBack: () => videoRef.current.play(),
-        // onLeave: () => videoRef.current.pause(),
-        // onLeaveBack: () => videoRef.current.pause(),
       },
     });
 
@@ -83,8 +106,15 @@ const Hero = () => {
     <>
       {/* titles + paragraht + leafs */}
       <section id="hero" className="noisy">
-        <h1 className="title">
-          Drift <span className="font-anton">&</span> Pour
+        <h1 className="col-center title">
+          <div className="first-part">Drift</div>
+          {/* <span className="font-anton text-sm">&</span> */}
+          <div className="msg-text-scroll mask-clip-path w-2/12 ">
+            <div className=" md:px-5 px-5">
+              <div className="font-anton">&</div>
+            </div>
+          </div>
+          <div className="second-part">Pour</div>
         </h1>
         <img
           src={images.hero.heroLeftLeaf}

@@ -1,7 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
-
 import { images } from "../utils";
 
 const About = () => {
@@ -37,15 +36,31 @@ const About = () => {
         "<"
       )
       .from(
-        ".top-grid div, .bottom-grid div",
+        ".img-grid div",
+
         {
           opacity: 0,
-          duration: 1,
-          ease: "power1.inOut",
-          stagger: 0.05,
+          duration: 1.5,
+          ease: "back.inOut",
+          stagger: 0.2,
         },
         "-=1"
       );
+
+    const iceElements = gsap.utils.toArray(".ice");
+    gsap.from(iceElements, {
+      duration: 5,
+      ease: "expo.inOut",
+      stagger: 0.05,
+      repeat: -1,
+      yoyo: true,
+      backgroundColor: gsap.utils.wrap([
+        "#00CFFF",
+        "#50C878",
+        "#FF2DAE",
+        "#A100FF",
+      ]),
+    });
   }, []);
   return (
     <section id="about">
@@ -77,27 +92,66 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="top-grid">
+      <div className="img-grid">
         <div className="md:col-span-3">
           <div className="noisy" />
           <img src={images.about.about1} alt="grid-img1" />
         </div>
         <div className="md:col-span-6">
-          <div className="noisy" />
+          <div className="ice" />
           <img src={images.about.about2} alt="grid-img2" />
         </div>
         <div className="md:col-span-3">
-          <div className="ice" />
+          <div className="noisy" />
           <img src={images.about.about5} alt="grid-img5" />
         </div>
       </div>
-      <div className="bottom-grid">
+
+      <div className="img-grid">
+        <div className="md:col-span-2">
+          <div className="ice" />
+          <img src={images.about.about6} alt="grid-img1" />
+        </div>
+        <div className="md:col-span-4">
+          <div className="noisy" />
+          <img src={images.about.about8} alt="grid-img2" />
+        </div>
+        <div className="md:col-span-2">
+          <div className="ice" />
+          <img src={images.about.about7} alt="grid-img5" />
+        </div>
+        <div className="md:col-span-4">
+          <div className="noisy" />
+          <img src={images.about.about9} alt="grid-img5" />
+        </div>
+      </div>
+
+      <div className="img-grid">
+        <div className="md:col-span-4">
+          <div className="noisy" />
+          <img src={images.about.about12} alt="grid-img1" />
+        </div>
+        <div className="md:col-span-2">
+          <div className="ice" />
+          <img src={images.about.about10} alt="grid-img2" />
+        </div>
+        <div className="md:col-span-4">
+          <div className="noisy" />
+          <img src={images.about.about11} alt="grid-img5" />
+        </div>
+        <div className="md:col-span-2">
+          <div className="ice" />
+          <img src={images.about.about13} alt="grid-img5" />
+        </div>
+      </div>
+
+      <div className="img-grid">
         <div className="md:col-span-8">
           <div className="noisy" />
           <img src={images.about.about3} alt="grid-img3" />
         </div>
         <div className="md:col-span-4">
-          <div className="noisy" />
+          <div className="ice" />
           <img src={images.about.about4} alt="grid-img4" />
         </div>
       </div>

@@ -33,7 +33,9 @@ const Navbar = () => {
         <div className="text-3xl md:text-3xl xl:text-[5000px]">
           <a href="#hero" className="flex items-center gap-2">
             <img src={images.nav.logo} alt="logo" width="40" height="40" />
-            Drift<span className="font-anton">&</span>Pour
+            <span className="text-[#00CFFF]">Drift</span>
+            <span className="font-anton">&</span>
+            <span className="text-[#A100FF]">Pour</span>
           </a>
         </div>
         {/* nav items */}

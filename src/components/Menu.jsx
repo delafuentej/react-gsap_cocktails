@@ -26,6 +26,21 @@ const Menu = () => {
   const nextCocktail = getCocktailAt(1);
 
   useGSAP(() => {
+    const generalAnimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#menu",
+        start: "top center",
+        end: "bottom center",
+        // markers: true,
+        toggleActions: "restart reverse restart reverse",
+      },
+    });
+    generalAnimation.to(["#menu-right-leaf", "#menu-left-leaf"], {
+      opacity: 1,
+      duration: 1,
+      ease: "circ.inOut",
+    });
+
     gsap.fromTo("#title", { opacity: 0 }, { opacity: 1, duration: 2 });
     gsap.fromTo(
       ".cocktail img",
