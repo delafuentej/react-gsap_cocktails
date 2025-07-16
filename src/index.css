@@ -215,29 +215,13 @@ body {
   }
 
   #about {
-    @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto;
+    @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto w-full;
 
-    .content {
-      @apply grid grid-cols-1 lg:grid-cols-12 gap-5;
+    .content-links {
+      @apply w-full;
 
       h2 {
         @apply text-5xl md:text-6xl font-modern-negra max-w-lg;
-      }
-
-      .sub-content {
-        @apply md:col-span-4 space-y-5 flex flex-col justify-between;
-
-        p {
-          @apply text-lg;
-        }
-
-        div {
-          @apply flex flex-col justify-between md:gap-2 gap-5;
-
-          span {
-            @apply text-yellow font-bold text-5xl;
-          }
-        }
       }
     }
 

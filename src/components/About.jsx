@@ -2,11 +2,12 @@ import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
 import { images } from "../utils";
+import { profileLists } from "../constants";
 
 const About = () => {
   useGSAP(() => {
     const titleSplit = SplitText.create("#about h2", { type: "words" });
-    const paragraphSplit = SplitText.create(".sub-content p", {
+    const paragraphSplit = SplitText.create("#content-right", {
       type: "lines",
     });
 
@@ -40,7 +41,7 @@ const About = () => {
 
         {
           opacity: 0,
-          duration: 1.5,
+          duration: 1,
           ease: "back.inOut",
           stagger: 0.2,
         },
@@ -63,35 +64,66 @@ const About = () => {
     });
   }, []);
   return (
-    <section id="about">
-      <div className="mb-16 md:px-0 px-5">
-        <div className="content">
-          <div className="md:col-span-8">
-            <p className="badge">Best Cocktails</p>
-            <h2>
-              Where every detail matters <span className="text-white"> - </span>
-              from muddle to garnish
-            </h2>
+    <section
+      id="about"
+      className="min-h-screen py-28 px-5 2xl:px-0 container mx-auto w-full"
+    >
+      <div className="flex flex-col md:flex-row justify-between w-full gap-10 mb-15">
+        {/* content */}
+        <div className="flex flex-col justify-between w-full md:w-1/2">
+          <p className="inline-block rounded-full bg-white text-black px-4 py-2 text-sm font-medium mb-8 w-3/12 text-center">
+            Best Cocktails
+          </p>
+          <h2 className="text-5xl md:text-6xl font-modern-negra max-w-lg">
+            Where every detail matters <span className="text-white"> - </span>
+            from muddle to garnish
+          </h2>
+        </div>
+
+        {/* Columna derecha: texto y reviews */}
+        <div
+          id="content-right"
+          className="flex flex-col justify-between w-full md:w-1/2 gap-4"
+        >
+          <div>
+            Every cocktail we serve is a testament to our unwavering devotion to
+            detail — from the very first pour to the final garnish. It is this
+            meticulous care that transforms a simple drink into an unforgettable
+            experience.
           </div>
 
-          <div className="sub-content">
-            <p>
-              Every cocktail we serve is a testament to our unwavering devotion
-              to detail — from the very first pour to the final garnish. It is
-              this meticulous care that transforms a simple drink into an
-              unforgettable experience.
-            </p>
-            <div>
-              <p className="md:text-3xl text-xl font-bold">
-                <span>4.7</span>/ 5
-              </p>
-              <p className="text-sm text-white-100">
-                More than 20.000 customers
-              </p>
+          <div className="flex gap-6 items-center w-full bg-gray-900 rounded-4xl px-2 py-2">
+            {/* Columna izquierda: estrellas y puntuación */}
+            <div className="p-4 rounded-xl w-1/2">
+              <div className="flex gap-1">
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <span key={index}>⭐</span>
+                ))}
+              </div>
+              <div className="text-2xl font-bold">
+                <span className="text-yellow-100 text-3xl">4.7</span> / 5
+              </div>
+              <div className="text-sm">More than 20.000 customers</div>
+            </div>
+
+            <div className="w-px h-20 bg-gray-300" />
+
+            {/* Columna derecha: avatares */}
+            <div className=" p-4 rounded-xl flex gap-2 w-1/2 flex-center">
+              {profileLists.map((profile, index) => (
+                <img
+                  key={index}
+                  src={profile.imgPath}
+                  alt={`profile-${index}`}
+                  className="w-10 h-10 object-cover rounded-full"
+                />
+              ))}
             </div>
           </div>
         </div>
       </div>
+
+      {/* grid images */}
       <div className="img-grid">
         <div className="md:col-span-3">
           <div className="noisy" />
