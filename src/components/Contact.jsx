@@ -15,16 +15,12 @@ const Contact = () => {
     const videoAnimationTl = gsap.timeline({
       scrollTrigger: {
         trigger: "#contact",
-        start: "top top",
+        start: "top -30%",
         end: "bottom center",
         scrub: true,
+        maarkers: true,
         pin: true,
         toggleActions: "restart reverse restart reverse",
-
-        // onEnter: () => videoRef.current.play(),
-        // onEnterBack: () => videoRef.current.play(),
-        // onLeave: () => videoRef.current.pause(),
-        // onLeaveBack: () => videoRef.current.pause(),
       },
     });
 
@@ -44,18 +40,34 @@ const Contact = () => {
       },
     });
     generalAnimation
-      .from(titleSplit.words, {
-        opacity: 0,
-        yPercent: 100,
-        ease: "power1.inOut",
-        stagger: 0.05,
-      })
+      .from(
+        titleSplit.words,
+        {
+          opacity: 0,
+          yPercent: 100,
+          ease: "power1.inOut",
+          stagger: 0.05,
+        },
+        "=+1"
+      )
       .to(["#footer-right-leaf", "#footer-left-leaf"], {
         opacity: 1,
         y: -50,
         duration: 1,
         ease: "sine.inOut",
       });
+
+    // contact card
+
+    generalAnimation.to(
+      ".contact-card",
+      {
+        opacity: 1,
+        duracion: 1.5,
+        stagger: 0.5,
+      },
+      ">"
+    );
   }, []);
 
   return (
@@ -127,13 +139,13 @@ const Contact = () => {
       <div className="content">
         <div className="contact-card">
           <h3>Visit our Bar</h3>
-          <p>456, Raq Blvd. #404, Los Angeles, CA 90210</p>
+          <p>742 Dreamcatcher Lane, Mystvale, Eloria 93827</p>
         </div>
 
         <div className="contact-card">
-          <h3>Contact us</h3>
-          <p>(555) 987-6543</p>
-          <p>contact@dandpcocktails.com</p>
+          <h3 className="text-xl font-semibold mb-2">Contact us</h3>
+          <p className="text-sm opacity-90">+999 555 123 7890</p>
+          <p className="text-sm opacity-90">contact@dandpcocktails.el</p>
         </div>
 
         <div className="contact-card">
@@ -151,7 +163,7 @@ const Contact = () => {
               <a
                 href={social.url}
                 key={social.name}
-                className="hover:scale-110 transition-transform duration-300"
+                className="hover:scale-120 transition-transform duration-300"
               >
                 <img src={social.icon} className="w-6 h-6" />
               </a>

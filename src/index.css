@@ -163,7 +163,7 @@ body {
   }
 
   video {
-    @apply w-full md:h-[80%] h-1/2 absolute bottom-0 left-0 md:object-contain object-bottom object-cover inset-0;
+    @apply w-full md:h-[80%]  h-[100%] absolute bottom-0 left-0 md:object-contain object-bottom object-cover inset-0;
   }
 
   #cocktails {
@@ -363,22 +363,25 @@ body {
     }
 
     .contact-video {
-      @apply w-full md:h-[80%] h-1/2 absolute  md:object-contain object-bottom object-cover inset-0 -z-10  mix-blend-screen;
+      @apply w-full md:h-[100%] h-1/2 absolute  md:object-contain object-bottom object-cover inset-0 -z-10  mix-blend-screen;
     }
 
     .content {
-      @apply container mx-auto lg:py-14 2xl:py-32 py-16 flex flex-col justify-between gap-10 min-h-dvh;
+      @apply container grid grid-cols-2 m-auto gap-4 mt-[50%];
 
-      h2 {
+      /* h2 {
         @apply lg:text-6xl 2xl:text-8xl text-5xl font-modern-negra md:translate-y-0 translate-y-5 font-bold md:text-6xl  bg-black/15  text-white drop-shadow-md;
+      } */
+      .contact-card {
+        @apply backdrop-blur-sm bg-black/65 p-6 rounded-xl shadow-md opacity-0;
       }
 
       h3 {
-        @apply uppercase xl:text-base 2xl:text-lg text-base mb-2  bg-black/15  text-white drop-shadow-md;
+        @apply text-xl font-semibold mb-2;
       }
 
       p {
-        @apply lg:text-2xl 2xl:text-3xl text-sm  bg-black/15  text-white drop-shadow-md;
+        @apply text-sm opacity-90;
       }
     }
 
