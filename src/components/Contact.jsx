@@ -12,30 +12,45 @@ const Contact = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   useGSAP(() => {
-    const videoAnimationTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#contact",
-        start: "top -30%",
-        end: "bottom center",
-        scrub: true,
-        maarkers: true,
-        pin: true,
-        toggleActions: "restart reverse restart reverse",
-      },
-    });
-
-    videoRef.current.onloadedmetadata = () => {
-      videoAnimationTl.to(videoRef.current, {
-        currentTime: videoRef.current.duration,
+    if (!isMobile || videoRef.current) {
+      const videoAnimationTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top -10%",
+          end: "bottom center",
+          scrub: true,
+          // markers: true,
+          pin: true,
+          toggleActions: "restart reverse restart reverse",
+        },
       });
-    };
+
+      const handleMetadata = () => {
+        videoAnimationTl.to(videoRef.current, {
+          currentTime: videoRef.current.duration,
+        });
+      };
+
+      if (videoRef.current.readyState >= 1) {
+        videoRef.current.onloadedmetadata = () => {
+          handleMetadata();
+        };
+      } else {
+        videoRef.current.onloadedmetadata = handleMetadata;
+      }
+    }
 
     const titleSplit = SplitText.create("#contact h2", { type: "words" });
+
+    const startValue = isMobile ? "top 50%" : "top 30%";
+    const endValue = isMobile ? "120% top" : "bottom top";
 
     const generalAnimation = gsap.timeline({
       scrollTrigger: {
         trigger: "#contact",
-        start: "top center",
+        start: startValue,
+        end: endValue,
+        // markers: true,
         toggleActions: "restart reverse restart reverse",
       },
     });
@@ -50,12 +65,22 @@ const Contact = () => {
         },
         "=+1"
       )
-      .to(["#footer-right-leaf", "#footer-left-leaf"], {
+      .to("#footer-right-leaf", {
         opacity: 1,
         y: -50,
         duration: 1,
         ease: "sine.inOut",
-      });
+      })
+      .to(
+        "#footer-left-leaf",
+        {
+          opacity: 1,
+          y: 50,
+          duration: 1,
+          ease: "sine.inOut",
+        },
+        "<"
+      );
 
     // contact card
 
@@ -64,14 +89,14 @@ const Contact = () => {
       {
         opacity: 1,
         duracion: 1.5,
-        stagger: 0.5,
+        stagger: 0.3,
       },
       ">"
     );
   }, []);
 
   return (
-    <footer id="contact" className="noisy">
+    <footer id="contact" className="ice bg-black">
       <img
         src={images.contact.leafs.footerRightLeaf}
         alt="footer-right-leaf"
@@ -84,58 +109,23 @@ const Contact = () => {
       />
 
       <div className="contact-video">
-        <video
-          ref={videoRef}
-          src={videos.contact.contactBg}
-          preload="auto"
-          muted
-          playsInline
-        />
+        {isMobile ? (
+          <img
+            src={images.contact.footerDrinks}
+            alt="footer-drink"
+            className="drink-img"
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            src={videos.contact.contactBg}
+            preload="auto"
+            muted
+            playsInline
+          />
+        )}
       </div>
-
-      {/* <div className="relative   max-w-6xl mx-auto px-6 py-12 text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 backdrop-blur bg-black/40 rounded-xl shadow-lg">
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Visit our Bar</h3>
-          <p className="text-sm opacity-90">
-            456, Raq Blvd. #404,
-            <br />
-            Los Angeles, CA 90210
-          </p>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Contact us</h3>
-          <p className="text-sm opacity-90">(555) 987-6543</p>
-          <p className="text-sm opacity-90">contact@dandpcocktails.com</p>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Open every day</h3>
-          {openingHours.map((time) => (
-            <p key={time.day} className="text-sm opacity-90">
-              {time.day}: {time.time}
-            </p>
-          ))}
-        </div>
-
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Socials</h3>
-          <div className="flex items-center justify-center gap-4">
-            {socials.map((social) => (
-              <a
-                href={social.url}
-                key={social.name}
-                className="hover:scale-110 transition-transform duration-300"
-              >
-                <img src={social.icon} className="w-6 h-6" />
-              </a>
-            ))}
-          </div>
-        </div>
-      </div> */}
-
       <h2>Where to find us</h2>
-
       <div className="content">
         <div className="contact-card">
           <h3>Visit our Bar</h3>
@@ -143,9 +133,9 @@ const Contact = () => {
         </div>
 
         <div className="contact-card">
-          <h3 className="text-xl font-semibold mb-2">Contact us</h3>
-          <p className="text-sm opacity-90">+999 555 123 7890</p>
-          <p className="text-sm opacity-90">contact@dandpcocktails.el</p>
+          <h3>Contact us</h3>
+          <p>+999 555 123 7890</p>
+          <p>contact@dpcocktails.el</p>
         </div>
 
         <div className="contact-card">
@@ -158,13 +148,9 @@ const Contact = () => {
         </div>
         <div className="contact-card">
           <h3>Socials</h3>
-          <div className="flex-center gap-5 mt-6">
+          <div className="flex-center gap-5 mt-15">
             {socials.map((social) => (
-              <a
-                href={social.url}
-                key={social.name}
-                className="hover:scale-120 transition-transform duration-300"
-              >
+              <a href={social.url} key={social.name}>
                 <img src={social.icon} className="w-6 h-6" />
               </a>
             ))}

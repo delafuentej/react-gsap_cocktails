@@ -11,13 +11,13 @@ const Art = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   useGSAP(() => {
-    const start = isMobile ? "top 70%" : "top top";
+    const start = isMobile ? "top top" : "top top";
 
     const maskTl = gsap.timeline({
       scrollTrigger: {
         trigger: "#art",
         start: start,
-        end: "button center",
+        end: "bottom center",
         toggleActions: "restart reverse restart reverse",
         scrub: 1.5,
         pin: true,
@@ -48,11 +48,14 @@ const Art = () => {
       <div className="container mx-aut h-full pt-20">
         <h2 className="will-fade">The ART</h2>
         <div className="content">
-          <ul className="space-y-4 will-fade">
+          <ul className="space-y-4 will-fade col-center mt-20">
             {goodLists.map((item, index) => (
-              <li key={index} className="flex items-center gap-2">
+              <li
+                key={index}
+                className="flex items-center  justify-start gap-2"
+              >
                 <img src={images.art.check} alt="check" />
-                <p>{item}</p>
+                <p className="md:w-fit w-60">{item}</p>
               </li>
             ))}
           </ul>
@@ -70,7 +73,7 @@ const Art = () => {
             />
           </div>
 
-          <ul className="space-y-4 will-fade">
+          <ul className="space-y-4 will-fade col-center">
             {featureLists.map((item, index) => (
               <li
                 key={index}

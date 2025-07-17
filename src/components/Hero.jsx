@@ -64,7 +64,7 @@ const Hero = () => {
     });
 
     animationLeafs
-      .to(".right-leaf", { yPercent: 300 }, 0)
+      .to(".right-leaf", { yPercent: 192 }, 0)
       .to(".left-leaf", { yPercent: -100 }, 0);
 
     const animationMsgText = gsap.timeline({
@@ -82,14 +82,15 @@ const Hero = () => {
     });
 
     // animation video:
-    const startValue = isMobile ? "top 30%" : "center 60%";
-    const endValue = isMobile ? "120% top" : "bottom top";
+    const startValue = isMobile ? "top 30%" : "top 0";
+    const endValue = isMobile ? "bottom top" : "bottom top";
 
     const animationVideo = gsap.timeline({
       scrollTrigger: {
         trigger: "video",
         start: startValue,
         end: endValue,
+        marker: true,
         scrub: true,
         pin: true,
       },
@@ -109,7 +110,7 @@ const Hero = () => {
         <h1 className="col-center title">
           <div className="first-part">Drift</div>
           {/* <span className="font-anton text-sm">&</span> */}
-          <div className="msg-text-scroll mask-clip-path w-2/12 ">
+          <div className="msg-text-scroll mask-clip-path w-1/12 ">
             <div className=" md:px-5 px-5">
               <div className="font-anton">&</div>
             </div>
@@ -126,6 +127,7 @@ const Hero = () => {
           alt="hero-left-leaf"
           className="right-leaf"
         />
+
         <div className="body">
           <div className="content">
             <div className="space-y-5 hidden md:block">

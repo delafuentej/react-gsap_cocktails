@@ -9,11 +9,17 @@ const Cocktails = () => {
 
     const parallaxTl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#cocktails",
+        trigger: section,
         start: "top 10%",
         end: "bottom bottom",
         toggleActions: "restart reverse restart reverse",
         scrub: true,
+        backgroundColor: gsap.utils.wrap([
+          "#00CFFF",
+          // "#50C878",
+          // "#FF2DAE",
+          // "#A100FF",
+        ]),
         // Cambiar clase cuando entra
         onEnter: () => {
           section.classList.remove("noisy");

@@ -48,7 +48,7 @@ const About = () => {
         "-=1"
       );
 
-    const iceElements = gsap.utils.toArray(".ice");
+    const iceElements = gsap.utils.toArray("#about .ice");
     gsap.from(iceElements, {
       duration: 5,
       ease: "expo.inOut",
@@ -56,9 +56,9 @@ const About = () => {
       repeat: -1,
       yoyo: true,
       backgroundColor: gsap.utils.wrap([
-        "#00CFFF",
-        "#50C878",
         "#FF2DAE",
+        "#50C878",
+        "#00CFFF",
         "#A100FF",
       ]),
     });
@@ -92,7 +92,7 @@ const About = () => {
             experience.
           </div>
 
-          <div className="flex gap-6 items-center w-full bg-gray-900 rounded-4xl px-2 py-2">
+          <div className="flex gap-6 items-center w-full bg-gray-950 rounded-4xl px-2 py-2">
             {/* Columna izquierda: estrellas y puntuación */}
             <div className="p-4 rounded-xl w-1/2">
               <div className="flex gap-1">
